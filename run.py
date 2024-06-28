@@ -6,7 +6,7 @@ app = create_app()
 
 @app.route('/')
 def display_message():
-    return "Hello, World!<br/>Updates coming soon."
+    return "<h3>Welcome to MedBooker<br/>Updates coming soon.<h3/>"
 
 if __name__ == '__main__':
     app.run(debug=True)
