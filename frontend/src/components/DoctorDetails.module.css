@@ -1,0 +1,24 @@
+/* DoctorDetails.module.css */
+
+.doctorDetails {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .doctorDetails h2 {
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+    color: #343a40;
+  }
+  
+  .doctorDetails p {
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+    color: #495057;
+  }
+  

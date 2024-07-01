@@ -1,0 +1,78 @@
+
+  .landingPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: url('https://source.unsplash.com/1600x900/?healthcare') no-repeat center center/cover;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .header {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 40px 20px;
+    border-radius: 10px;
+  }
+  
+  .header h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  .header p {
+    font-size: 1.0em;
+    margin-bottom: 30px;
+  }
+  
+  .ctaButton {
+    background-color: #28a745;
+    color: #fff;
+    padding: 15px 30px;
+    font-size: 1.0em;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .ctaButton:hover {
+    background-color: #218838;
+  }
+  
+  .features {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 40px 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+  }
+  
+  .features h2 {
+    font-size: 2.0em;
+    margin-bottom: 20px;
+  }
+  
+  .features ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .features li {
+    font-size: 1.0em;
+    margin-bottom: 10px;
+  }
+  
+  .footer {
+    margin-top: auto;
+    padding: 20px 0;
+    background: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    text-align: center;
+  }
+  
+  .footer p {
+    margin: 0;
+    font-size: 0.8em;
+  }
+  

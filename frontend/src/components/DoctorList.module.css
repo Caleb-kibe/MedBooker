@@ -1,0 +1,41 @@
+/* DoctorList.module.css */
+
+.doctorList {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .doctorList h2 {
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+    color: #343a40;
+  }
+  
+  .doctorList ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .doctorList li {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+  }
+  
+  .doctorList li a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
+  
+  .doctorList li a:hover {
+    text-decoration: underline;
+  }
+  
