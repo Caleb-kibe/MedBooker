@@ -26,7 +26,7 @@ class Appointment(db.Model):
     time = db.Column(db.DateTime, nullable=False)
 
 
-class DoctorAvailablity(db.Model):
+class DoctorAvailability(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     doctor_id = db.Column(db.Integer, db.ForeignKey('doctor.id'), nullable=False)
     available_time = db.Column(db.DateTime, nullable=False)
