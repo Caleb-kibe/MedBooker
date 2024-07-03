@@ -5,7 +5,7 @@ import styles from './Header.module.css';
 
 const Header = ({ isLoggedIn }) => {
   return (
-    <header className='{styles.header}'>
+    <header className={styles.header}>
       <h1>MedBooker</h1>
       <nav className={styles.nav}>
         <ul className={styles.navList}>
@@ -28,9 +28,9 @@ const Header = ({ isLoggedIn }) => {
           )}
         </ul>
         <div className={styles.authList}>
-          <Link to="/RegisterForm" className={styles.navLink}>register</Link>
+          <Link to="/RegisterForm" id={styles.navLink}>register</Link>
           <span className={styles.separator}>|</span>
-          <Link to="/LoginForm" className={styles.navLink}>login</Link>
+          <Link to="/LoginForm" id={styles.navLink}>login</Link>
         </div>
       </nav>
     </header>
