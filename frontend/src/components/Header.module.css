@@ -1,93 +1,71 @@
-/* .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    border-bottom: 1px solid #e9ecef;
+/* Header.module.css */
+
+.header {
+  background-color: #007bff;
+  color: #fff;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.header h1 {
+  font-size: 2rem;
+  margin: 0;
 }
 
 .nav {
-    display: flex;
-    justify-content: center;
-    list-style-type: none;
-    padding: 0;
-}
-
-.navList, .authList {
-    display: flex;
-    list-style-type: none;
-    padding: 0px 10px;
-    margin: 0;
+  display: flex;
+  align-items: center;
 }
 
 .navList {
-    margin-right: auto;
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
 }
 
 .navItem {
-    margin: 0 15px;
+  margin-right: 20px;
 }
 
 .navLink {
-    color: #088853;
-    text-decoration: none;
-    font-weight: bold;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  border-radius: 2px;
 }
 
 .navLink:hover {
-    text-decoration: underline;
-} */
+  background-color: #ffffff;
+  padding: 5px;
+}
 
-.header {
-    background-color: #ffffff;
-    padding: 20px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .header h1 {
-    font-size: 2em;
-    color: #333;
-    margin: 0;
-  }
-  
-  .nav {
-    display: flex;
-    align-items: center;
-  }
-  
-  .navList {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .navItem {
-    margin-right: 20px;
-  }
-  
-  .navLink {
-    font-size: 1em;
-    color: #28a745;
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-  
-  .navLink:hover {
-    color: #218838;
-  }
-  
-  .authList {
-    display: flex;
-    align-items: center;
-  }
-  
-  .separator {
-    margin: 0 10px;
-    color: #28a745;
-    font-size: 1.2em;
-  }
-  
+.authList {
+  display: flex;
+  align-items: center;
+}
+
+#navLink {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  border-radius: 2px;
+  background-color: rgb(255, 255, 255);
+  padding: 5px;
+}
+
+#navLink:hover {
+  background-color: #2881f5;
+  color: #d4d4d4;
+}
+
+.separator {
+  margin: 0 10px;
+  color: #fff;
+  font-size: 1.2rem;
+}
