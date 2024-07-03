@@ -15,30 +15,35 @@ import DoctorAvailability from './components/DoctorAvailability';
 import AppointmentList from './components/AppointmentList';
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn] = useState(false);
 
   return (
     <Router>
       <div className="App">
         <Header />
-        <Routes>
-          <Route path='/' element={LandingPage} />
-          <Route path="/Home" element={<Home />} />
-          <Route path="/About" element={<About />} />
-          <Route path='/RegisterForm' element={<RegisterForm />} />
-          <Route path='/LoginForm' element={<LoginForm/>} />
-          {isLoggedIn && (
-            <>
-              <Route path='/UserProfile' exact Component={<UserProfile />} />
-              <Route path='/DoctorList' element={<DoctorList />} />
-              <Route path='/AppointmentBooking' element={<AppointmentBooking />} />
-              <Route path='/DoctorDetails/:id' element={<DoctorDetails />} />
-              <Route path='/DoctorAvailability' element={<DoctorAvailability />} />
-              <Route path='/AppointmentList' element={<AppointmentList />} />
-            </>
-          )}
-        </Routes>
-    </div>
+        <div className="container">
+          <Routes>
+            <Route path='/' element={<LandingPage />} />
+            <Route path="/Home" element={<Home />} />
+            <Route path="/About" element={<About />} />
+            <Route path='/RegisterForm' element={<RegisterForm />} />
+            <Route path='/LoginForm' element={<LoginForm />} />
+            {isLoggedIn && (
+              <>
+                <Route path='/UserProfile' element={<UserProfile />} />
+                <Route path='/DoctorList' element={<DoctorList />} />
+                <Route path='/AppointmentBooking' element={<AppointmentBooking />} />
+                <Route path='/DoctorDetails/:id' element={<DoctorDetails />} />
+                <Route path='/DoctorAvailability' element={<DoctorAvailability />} />
+                <Route path='/AppointmentList' element={<AppointmentList />} />
+              </>
+            )}
+          </Routes>
+        </div>
+        <footer className="footer">
+          <p>&copy; 2024 MedBooker. All rights reserved.</p>
+        </footer>
+      </div>
     </Router>
   );
 }
