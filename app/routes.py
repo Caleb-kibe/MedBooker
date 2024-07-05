@@ -1,78 +1,68 @@
-from flask import request, jsonify
-from werkzeug.security import generate_password_hash, check_password_hash
-from flask_jwt_extended import create_access_token, jwt_required, JWTManager
-from flask_cors import CORS
-from app import db, create_app
-from app.models import User, Doctor, DoctorAvailability, Appointment
+from flask import Blueprint, request, jsonify
+from app.models import db, Appointment, DoctorAvailability, Doctor
+from flask_jwt_extended import jwt_required, get_jwt_identity
 
-app = create_app()
-CORS(app)
-jwt = JWTManager(app)
+appointments_bp = Blueprint('appointments', __name__)
 
 
-@app.route('/api/register', methods=['POST'])
-def register():
-    data = request.get_json()
-    if not data or not data.get('username') or not data.get('email') or not data.get('password') or not data.get('role'):
-        return jsonify({'message': 'Missing data'}), 400
-
-    hashed_password = generate_password_hash(data['password'], method='sha256')
-    new_user = User(username=data['username'], email=data['email'], password=hashed_password, role=data['role'])
-
-    try:
-        db.session.add(new_user)
-        db.session.commit()
-        return jsonify({'message': 'User registered successfully'})
-    except Exception as e:
-        db.session.rollback()
-        return jsonify({'message': 'Registration failed', 'error': str(e)}), 500
-
-
-@app.route('/api/login', methods=['POST'])
-def login():
-    data = request.get_json()
-    if not data or not data.get('username') or not data.get('password'):
-        return jsonify({'message': 'Missing data'}), 400
-
-    user = User.query.filter_by(username=data['username']).first()
-    if user and check_password_hash(user.password, data['password']):
-        token = create_access_token(identity={'username': user.username, 'role': user.role})
-        return jsonify({'token': token})
-    return jsonify({'message': 'Invalid credentials'}), 401
-
-
-@app.route('/api/doctors', methods=['GET'])
-def get_doctors():
-    doctors = Doctor.query.all()
-    return jsonify([doctor.to_dict() for doctor in doctors])
-
-
-@app.route('/api/doctors/<int:id>', methods=['GET'])
-def get_doctor(id):
-    doctor = Doctor.query.get_or_404(id)
-    return jsonify(doctor.to_dict())
-
-
-@app.route('/api/appointments', methods=['POST'])
+@appointments_bp.route('/book', methods=['POST'])
+@jwt_required()
 def book_appointment():
+    current_user_id = get_jwt_identity()
     data = request.get_json()
-    new_appointment = Appointment(
-        doctor_id=data['doctor_id'],
-        patient_id=data['patient_id'],
-        time=data['time']
-    )
+    doctor_id = data.get('doctor_id')
+    appointment_time = data.get('appointment_time')
+
+    availability = DoctorAvailability.query.filter_by(doctor_id=doctor_id, available_time=appointment_time).first()
+    if not availability:
+        return jsonify({"msg": "Doctor not available at the requested time"}), 400
+
+    new_appointment = Appointment(user_id=current_user_id, doctor_id=doctor_id, appointment_time=appointment_time)
     db.session.add(new_appointment)
     db.session.commit()
-    return jsonify({'message': 'Appointment booked successfully'})
+
+    return jsonify({"msg": "Appointment booked successfully"}), 201
 
 
-@app.route('/api/doctor/availability', methods=['POST'])
-def set_availability():
-    data = request.get_json()
-    new_availability = DoctorAvailability(
-        doctor_id=data['doctor_id'],
-        available_time=data['available_time']
-    )
-    db.session.add(new_availability)
+
+api_bp = Blueprint('api', __name__)
+
+
+@api_bp.route('/register_doctor', methods=['POST'])
+def register_doctor():
+    data = request.json
+    name = data.get('name')
+    specialty = data.get('specialty')
+
+    if not name or not specialty:
+        return jsonify({'message': 'Name and specialty are required'}), 400
+
+    new_doctor = Doctor(name=name, specialty=specialty)
+    db.session.add(new_doctor)
     db.session.commit()
-    return jsonify({'message': 'Availability set successfully'})
+
+    return jsonify({'message': 'Doctor registered successfully!'}), 201
+
+
+@api_bp.route('/doctors', methods=['GET'])
+def get_doctors():
+    doctors = Doctor.query.all()
+    doctor_list = [{'id': doctor.id, 'name': doctor.name, 'specialty': doctor.specialty} for doctor in doctors]
+    return jsonify(doctor_list), 200
+
+
+@api_bp.route('/profile', methods=['GET'])
+@jwt_required()
+def get_profile():
+    current_user_id = get_jwt_identity()
+    user = User.query.get(current_user_id)
+
+    if user:
+        return jsonify({
+            'id': user.id,
+            'name': user.name,
+            'email': user.email,
+            # Add other user info if needed
+        }), 200
+    else:
+        return jsonify({"msg": "User not found"}), 404
