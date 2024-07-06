@@ -1,48 +1,70 @@
+
+// import React, { useState } from 'react';
+// import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+// import Header from './components/Header';
+// import RegisterDoctor from './components/RegisterDoctor';
+// import LoginForm from './components/LoginForm';
+// import About from './components/About'
+// import Dashboard from './components/DashBoard';
+// import LandingPage from './components/LandingPage';
+// import RegisterForm from './components/RegisterForm';
+// import Profile from './components/Profile';
+// // import other components...
+
+// function App() {
+//   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+//   return (
+//     <Router>
+//       <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+//       <Routes>
+//         <Route path='/home' element={<LandingPage/>} />
+//         <Route path='/about' element={<About />} />
+//         <Route path="/register_doctor" element={<RegisterDoctor />} />
+//         <Route path='/register' element={<RegisterForm />} />
+//         <Route path="/login" element={<LoginForm setIsLoggedIn={setIsLoggedIn} />} />
+//         <Route path='/profile' element={<Profile />} />
+//         <Route path='/dashboard' element={<Dashboard />} />
+//         {/* Add other routes here */}
+//       </Routes>
+//     </Router>
+//   );
+// }
+
+// export default App;
+import './App.css'
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import './App.css';
 import Header from './components/Header';
-import Home from './components/Home';
-import About from './components/About';
-import RegisterForm from './components/RegisterForm';
+import RegisterDoctor from './components/RegisterDoctor';
 import LoginForm from './components/LoginForm';
+import About from './components/About'
+import Dashboard from './components/DashBoard';
 import LandingPage from './components/LandingPage';
-import DoctorList from './components/DoctorList';
-import DoctorDetails from './components/DoctorDetails';
-import AppointmentBooking from './components/AppointmentBooking';
-import UserProfile from './components/UserProfile';
-import DoctorAvailability from './components/DoctorAvailability';
-import AppointmentList from './components/AppointmentList';
+import RegisterForm from './components/RegisterForm';
+import Profile from './components/Profile';
+import Footer from './components/Footer';
 
 function App() {
-  const [isLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('token'));
 
   return (
     <Router>
-      <div className="App">
-        <Header />
-        <div className="container">
+      <div className="app-container">
+        <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+        <div className="main-content">
           <Routes>
-            <Route path='/' element={<LandingPage />} />
-            <Route path="/Home" element={<Home />} />
-            <Route path="/About" element={<About />} />
-            <Route path='/RegisterForm' element={<RegisterForm />} />
-            <Route path='/LoginForm' element={<LoginForm />} />
-            {isLoggedIn && (
-              <>
-                <Route path='/UserProfile' element={<UserProfile />} />
-                <Route path='/DoctorList' element={<DoctorList />} />
-                <Route path='/AppointmentBooking' element={<AppointmentBooking />} />
-                <Route path='/DoctorDetails/:id' element={<DoctorDetails />} />
-                <Route path='/DoctorAvailability' element={<DoctorAvailability />} />
-                <Route path='/AppointmentList' element={<AppointmentList />} />
-              </>
-            )}
+          <Route path='/home' element={<LandingPage/>} />
+          <Route path='/about' element={<About />} />
+          <Route path="/register_doctor" element={<RegisterDoctor />} />
+          <Route path='/register' element={<RegisterForm />} />
+          <Route path="/login" element={<LoginForm setIsLoggedIn={setIsLoggedIn} />} />
+          <Route path='/profile' element={<Profile />} />
+          <Route path='/dashboard' element={<Dashboard />} />
+         {/* Add other routes here */}
           </Routes>
         </div>
-        <footer className="footer">
-          <p>&copy; 2024 MedBooker. All rights reserved.</p>
-        </footer>
+        <Footer />
       </div>
     </Router>
   );

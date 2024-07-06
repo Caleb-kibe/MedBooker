@@ -1,6 +1,4 @@
-/* App.css */
-
-/* General body styling */
+/* 
 body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
@@ -9,20 +7,17 @@ body {
   color: #495057;
 }
 
-/* Main app container */
 .App {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Ensure app stretches to full viewport height */
+  min-height: 100vh; 
 }
 
-/* Container for main content */
 .container {
-  flex: 1; /* Take remaining vertical space */
-  padding: 20px;
+  flex: 1; 
+  margin: 0;
 }
 
-/* Footer styling */
 .footer {
   background-color: #343a40;
   color: #fff;
@@ -31,9 +26,8 @@ body {
   font-size: small;
 }
 
-/* Header and navigation */
 .header {
-  background-color: #007bff;
+  background-color: #007bff4d;
   color: #fff;
   padding: 15px 0;
   text-align: center;
@@ -66,7 +60,6 @@ body {
   color: #fff;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
   .navbar {
     flex-wrap: wrap;
@@ -76,4 +69,15 @@ body {
     text-align: center;
     margin-bottom: 10px;
   }
+} */
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  padding-bottom: 60px; /* Height of the footer */
 }
