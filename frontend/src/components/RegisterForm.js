@@ -6,30 +6,40 @@ function RegisterForm() {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [role, setRole] = useState('');
-  // Added state variable to track registration status
   const [isRegistered, setIsRegistered] = useState(false);
+  const [error, setError] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Check if passwords match
+    if (password !== confirmPassword) {
+      setError('Passwords do not match');
+      return;
+    }
+
+    // Log form data
+    console.log('Form Data:', { username, email, password, role });
+
     try {
-      const response = await axios.post('/api/register', {
+      const response = await axios.post('http://127.0.0.1:5000/auth/register', {
         username,
         email,
         password,
         role
       });
-      if (response.status === 200) {
+      if (response.status === 201) {
         console.log('Registration successful!');
-        // Set state to true to display success message
         setIsRegistered(true);
       } else {
         console.error('Registration failed:', response);
-        // Handle unsuccessful registration (e.g., display error message)
+        setError('Registration failed. Please try again.');
       }
     } catch (error) {
       console.error('Registration error:', error);
-      // Handle registration error (e.g., display error message)
+      setError('Registration error. Please try again. :)');
     }
   };
 
@@ -49,12 +59,16 @@ function RegisterForm() {
           <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
         </div>
         <div className={styles.formField}>
+          <label>Confirm Password</label>
+          <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
+        </div>
+        <div className={styles.formField}>
           <label>Role</label>
           <input type="text" value={role} onChange={(e) => setRole(e.target.value)} required />
         </div>
         <button type="submit">Register</button>
+        {error && <p className={styles.errorMessage}>{error}</p>}
       </form>
-      {/* Conditionally render success message */}
       {isRegistered && <p className={styles.successMessage}>Registration Successful!</p>}
     </div>
   );

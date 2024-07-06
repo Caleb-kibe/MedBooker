@@ -1,24 +1,31 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import styles from './DoctorList.module.css';
 
 const DoctorList = () => {
   const [doctors, setDoctors] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/doctors')
-      .then(response => setDoctors(response.data))
-      .catch(error => console.error('Error fetching doctors:', error));
+    const fetchDoctors = async () => {
+      try {
+        const response = await axios.get('http://127.0.0.1:5000/api/doctors');
+        setDoctors(response.data);
+      } catch (error) {
+        console.error('Error fetching doctors:', error);
+      }
+    };
+
+    fetchDoctors();
   }, []);
 
   return (
-    <div className={styles.doctorList}>
-      <h2>Doctors</h2>
-      <ul>
-        {doctors.map(doctor => (
-          <li key={doctor.id}>
-            <Link to={`/doctors/${doctor.id}`}>{doctor.name} - {doctor.speciality}</Link>
+    <div className={styles.container}>
+      <h2>Available Doctors</h2>
+      <ul className={styles.doctorList}>
+        {doctors.map((doctor) => (
+          <li key={doctor.id} className={styles.doctorItem}>
+            <h3>{doctor.name}</h3>
+            <p>{doctor.specialty}</p>
           </li>
         ))}
       </ul>

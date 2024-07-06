@@ -1,35 +1,39 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import styles from './AppointmentBooking.module.css';
 
-const AppointmentBooking = ({ doctorId }) => {
-  const [time, setTime] = useState('');
+function AppointmentBooking() {
+    const [doctorId, setDoctorId] = useState('');
+    const [appointmentTime, setAppointmentTime] = useState('');
+    const [message, setMessage] = useState('');
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await axios.post('http://localhost:5000/api/appointments', {
-        doctor_id: doctorId,
-        patient_id: /* Get this from logged in user context */
-        time
-      });
-      console.log(response.data);
-      // Optionally, handle successful appointment booking
-    } catch (error) {
-      console.error('Error booking appointment:', error);
-    }
-  };
+    const handleBooking = async () => {
+        try {
+            const response = await axios.post('http://127.0.0.1:5000/appointments/book', {
+                doctor_id: doctorId,
+                appointment_time: appointmentTime
+            });
+            setMessage(response.data.msg);
+        } catch (error) {
+            console.error('Error booking appointment:', error);
+            setMessage('Failed to book appointment. Please try again.');
+        }
+    };
 
-  return (
-    <form onSubmit={handleSubmit} className={styles.appointmentBooking}>
-      <h2>Book an Appointment</h2>
-      <div className={styles.formField}>
-        <label>Time</label>
-        <input type="datetime-local" value={time} onChange={(e) => setTime(e.target.value)} required />
-      </div>
-      <button type="submit">Book Appointment</button>
-    </form>
-  );
-};
+    return (
+        <div>
+            <h1>Book Appointment</h1>
+            <form onSubmit={handleBooking}>
+                <label>Doctor ID:</label>
+                <input type="text" value={doctorId} onChange={(e) => setDoctorId(e.target.value)} required />
+                <br />
+                <label>Appointment Time:</label>
+                <input type="datetime-local" value={appointmentTime} onChange={(e) => setAppointmentTime(e.target.value)} required />
+                <br />
+                <button type="submit">Book Appointment</button>
+            </form>
+            <p>{message}</p>
+        </div>
+    );
+}
 
 export default AppointmentBooking;
