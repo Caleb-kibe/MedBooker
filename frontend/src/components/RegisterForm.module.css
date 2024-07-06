@@ -1,8 +1,8 @@
-.registerForm {
+/* .registerForm {
   width: 100%;
   max-width: 400px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 30px 20px;
   border: 1px solid #ccc;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -51,4 +51,76 @@ button:hover {
   color: #155724;
   border: 1px solid #c3e6cb;
   border-radius: 4px;
+} */
+/* RegisterForm.module.css */
+
+.everything {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f0f2f5;
+}
+
+.registerForm {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+}
+
+.formField {
+  margin-bottom: 1rem;
+  padding: 0 10px;
+}
+
+.formField label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.formField input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #d1d1d1;
+  border-radius: 4px;
+}
+
+.formField input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.errorMessage {
+  color: #d9534f;
+  margin-top: 1rem;
+  font-weight: 600;
+}
+
+.successMessage {
+  color: #5cb85c;
+  margin-top: 1rem;
+  font-weight: 600;
 }

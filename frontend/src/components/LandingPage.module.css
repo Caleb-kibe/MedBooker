@@ -3,17 +3,22 @@
 .landingPage {
   max-width: 900px;
   margin: 0 auto;
-  padding: 10px 20px;
+  padding: 80px 100px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: rgb(255, 255, 255);
 }
 
 .header {
   text-align: center;
-  margin-bottom: 40px;
-  background-color: aquamarine;
-  padding: 10px 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  margin-bottom: 50px;
+  background-color: rgb(243, 255, 251);
+  padding: 10%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.829), rgba(255, 255, 255, 0.418)), url('https://cdn.pixabay.com/photo/2022/12/19/06/57/stethoscope-7664834_960_720.jpg');
+
 }
 
 .header h1 {
@@ -57,9 +62,10 @@
 .features ul {
   list-style-type: none;
   padding-left: 0;
-  background-color: aquamarine;
+  background-color: rgb(255, 255, 255);
   padding: 20px 20px;
   border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .features li {
@@ -71,10 +77,11 @@
 .services {
   margin-bottom: 40px;
   text-align: center;
-  background-color: aquamarine;
-  padding: 10px 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: rgb(255, 255, 255);
+  padding: 30px 10px;
   border-radius: 5px;
+  background-image: url('https://cdn.pixabay.com/photo/2021/10/03/03/47/doctor-6676747_1280.jpg');
+  background-position: center;
 }
 
 .services h2 {
@@ -84,7 +91,7 @@
 }
 
 .serviceCard {
-  background-color:#f8f9fa;
+  background-color:#ffffff7a;
   padding: 20px;
   margin-bottom: 20px;
   border-radius: 5px;
@@ -107,14 +114,14 @@
 }
 
 .testimonials h2 {
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: #333;
   margin-bottom: 20px;
   text-align: center;
 }
 
 .testimonial {
-  background-color: aquamarine;
+  background-color: rgb(255, 255, 255);
   padding: 20px;
   margin-bottom: 20px;
   border-radius: 5px;
@@ -122,7 +129,7 @@
 }
 
 .testimonial p {
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #666;
   margin-bottom: 10px;
 }

@@ -1,0 +1,25 @@
+.profileContainer {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+  }
+  
+  .profileField {
+    margin-bottom: 15px;
+  }
+  
+  .profileField label {
+    font-weight: bold;
+  }
+  
+  .profileField span {
+    margin-left: 10px;
+  }
+  
+  .error {
+    color: red;
+  }
+  
