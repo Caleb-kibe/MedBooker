@@ -47,7 +47,7 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
         </ul>
         {!isLoggedIn && (
           <div className={styles.authList}>
-            <Link to="/login" id={styles.navLink}>Login</Link>
+            <Link to="/login" className={styles.navLink}>Login</Link>
           </div>
         )}
       </nav>
