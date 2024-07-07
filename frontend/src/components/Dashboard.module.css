@@ -1,14 +1,10 @@
 .container {
     padding: 20px;
-    background-color: #f9f9f9;
+    background-color: #f9f9f9b4;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin: 20px;
     color: #555;
-    background-image: url('https://slidescorner.com/wp-content/uploads/2023/08/01-Aesthetic-Medical-Healthcare-Technology-and-Innovation-Medicine-PPT-Background-by-SlidesCorner.com_-300x300.jpg?v=1693027773');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
   }
   
   h1 {

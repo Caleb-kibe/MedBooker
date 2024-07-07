@@ -1,14 +1,10 @@
 .about {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.671);
     padding: 40px 20px;
     border-radius: 10px;
     max-width: 800px;
     margin: 40px auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-image: url('https://image.slidesdocs.com/responsive-images/docs/concept-of-iconic-medical-innovation-in-medical-and-health-science-page-border-background-word-template_e0a26c9d62__1131_1600.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
   }
   
   .title {
@@ -38,7 +34,7 @@
   }
   
   a {
-    color: #196e2d;
+    color: #1dcc46;
     text-decoration: none;
     transition: color 0.3s;
   }

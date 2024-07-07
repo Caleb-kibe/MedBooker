@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom'
 import styles from './RegisterForm.module.css';
 
 function RegisterForm() {
@@ -10,8 +11,8 @@ function RegisterForm() {
   const [role, setRole] = useState('');
   const [isRegistered, setIsRegistered] = useState(false);
   const [error, setError] = useState('');
-
-  const handleSubmit = async (e) => {
+   
+    const handleSubmit = async (e) => {
     e.preventDefault();
     
     // Check if passwords match
@@ -68,6 +69,9 @@ function RegisterForm() {
         </div>
         <button type="submit">Register</button>
         {error && <p className={styles.errorMessage}>{error}</p>}
+	      <p className={styles.loginRedirect}>
+	        Already have an account? <Link to="/login" className={styles.redirectButton}>Login here</Link>
+	      </p>
       </form>
       {isRegistered && <p className={styles.successMessage}>Registration Successful!</p>}
     </div>
