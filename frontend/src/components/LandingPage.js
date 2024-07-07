@@ -8,7 +8,7 @@ const LandingPage = () => {
       <header className={styles.header}>
         <h1>Welcome to MedBooker</h1>
         <p>Your one-stop solution for booking medical appointments.</p>
-        <Link to="/RegisterForm" className={styles.ctaButton}>Get Started</Link>
+        <Link to="/register" className={styles.ctaButton}>Get Started</Link>
       </header>
       <section className={styles.features}>
         <h2>Features</h2>
@@ -50,7 +50,7 @@ const LandingPage = () => {
       </section>
       <section className={styles.callToAction}>
         <h2>Ready to Book an Appointment?</h2>
-        <Link to="/RegisterForm" className={styles.ctaButton}>Sign Up Now</Link>
+        <Link to="/register" className={styles.ctaButton}>Sign Up Now</Link>
       </section>
     </div>
   );

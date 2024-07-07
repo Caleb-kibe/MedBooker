@@ -80,7 +80,7 @@
   background-color: rgb(255, 255, 255);
   padding: 30px 10px;
   border-radius: 5px;
-  background-image: url('https://cdn.pixabay.com/photo/2021/10/03/03/47/doctor-6676747_1280.jpg');
+  background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20190223/ourmid/pngtree-minimalist-gradient-medical-background-gradienth5ad-image_77129.jpg');
   background-position: center;
 }
 
@@ -91,7 +91,7 @@
 }
 
 .serviceCard {
-  background-color:#ffffff7a;
+  background-color:#ffffffa8;
   padding: 20px;
   margin-bottom: 20px;
   border-radius: 5px;
@@ -111,6 +111,8 @@
 
 .testimonials {
   margin-bottom: 40px;
+  background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20190223/ourmid/pngtree-minimalist-gradient-medical-background-gradienth5ad-image_77129.jpg');
+  padding: 30px;
 }
 
 .testimonials h2 {
@@ -121,7 +123,7 @@
 }
 
 .testimonial {
-  background-color: rgb(255, 255, 255);
+  background-color: rgba(24, 211, 180, 0.479);
   padding: 20px;
   margin-bottom: 20px;
   border-radius: 5px;
