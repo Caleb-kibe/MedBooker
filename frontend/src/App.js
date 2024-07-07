@@ -54,6 +54,7 @@ function App() {
         <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
         <div className="main-content">
           <Routes>
+          <Route path='/' element={<LandingPage/>} />
           <Route path='/home' element={<LandingPage/>} />
           <Route path='/about' element={<About />} />
           <Route path="/register_doctor" element={<RegisterDoctor />} />
