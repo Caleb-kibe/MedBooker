@@ -12,13 +12,14 @@ def register():
     username = data.get('username')
     email = data.get('email')
     password = data.get('password')
+    role = data.get('role')
     
     if User.query.filter_by(username=username).first():
         return jsonify({"msg": "Username already exists"}), 400
     if User.query.filter_by(email=email).first():
         return jsonify({"msg": "Email already exists"}), 400
 
-    new_user = User(username=username, email=email)
+    new_user = User(username=username, email=email, role=role)
     new_user.set_password(password)
     db.session.add(new_user)
     db.session.commit()
