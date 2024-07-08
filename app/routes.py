@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from app.models import db, Appointment, DoctorAvailability, Doctor
+from app.models import db, Appointment, DoctorAvailability, Doctor, User
 from flask_jwt_extended import jwt_required, get_jwt_identity
 
 appointments_bp = Blueprint('appointments', __name__)
