@@ -1,4 +1,5 @@
 from flask import Flask
+import logging
 from flask_bcrypt import Bcrypt
 from flask_jwt_extended import JWTManager
 from flask_migrate import Migrate
@@ -9,6 +10,7 @@ from flask_cors import CORS
 
 bcrypt = Bcrypt()
 jwt = JWTManager()
+logging.basicConfig(level=logging.INFO)
 
 def create_app():
     app = Flask(__name__)
@@ -36,5 +38,7 @@ def create_app():
 
         # Create the database tables if they don't exist
         db.create_all()
+
+    logging.info("Flask app started successfully")
 
     return app
