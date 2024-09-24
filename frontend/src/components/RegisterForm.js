@@ -25,7 +25,7 @@ function RegisterForm() {
     console.log('Form Data:', { username, email, password, role });
 
     try {
-      const response = await axios.post('http://127.0.0.1:5000/auth/register', {
+      const response = await axios.post('http://0.0.0.0:10000/auth/register', {
         username,
         email,
         password,
