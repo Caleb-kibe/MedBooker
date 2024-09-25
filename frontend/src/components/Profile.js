@@ -11,7 +11,7 @@ const Profile = () => {
     const fetchProfile = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://0.0.0.0:10000/api/profile', {
+        const response = await axios.get('https://medbooker.onrender.com/api/profile', {
           headers: {
             Authorization: `Bearer ${token}`
           }

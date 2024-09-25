@@ -10,7 +10,7 @@ const DoctorAvailability = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/doctor/availability', {
+      const response = await axios.post('https://medbooker.onrender.com/api/doctor/availability', {
         doctor_id: doctorId,
         available_time: availableTime
       });

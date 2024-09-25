@@ -12,7 +12,7 @@ function BookAppointment() {
     // Fetch available doctors
     const fetchDoctors = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:5000/api/doctors');
+        const response = await axios.get('https://medbooker.onrender.com/api/doctors');
         setDoctors(response.data);
       } catch (error) {
         console.error('Error fetching doctors:', error);
@@ -27,7 +27,7 @@ function BookAppointment() {
 
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.post('http://127.0.0.1:5000/appointments/book', {
+      const response = await axios.post('https://medbooker.onrender.com/appointments/book', {
         doctor_id: doctorId,
         appointment_time: appointmentTime,
       }, {

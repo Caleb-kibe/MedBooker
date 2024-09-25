@@ -7,7 +7,7 @@ const UserProfile = () => {
   const [appointments, setAppointments] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/user')
+    axios.get('https://medbooker.onrender.com/api/user')
       .then(response => {
         setUser(response.data.user);
         setAppointments(response.data.appointments);

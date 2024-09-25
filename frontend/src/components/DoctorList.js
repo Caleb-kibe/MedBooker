@@ -8,7 +8,7 @@ const DoctorList = () => {
   useEffect(() => {
     const fetchDoctors = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:5000/api/doctors');
+        const response = await axios.get('https://medbooker.onrender.com/api/doctors');
         setDoctors(response.data);
       } catch (error) {
         console.error('Error fetching doctors:', error);
