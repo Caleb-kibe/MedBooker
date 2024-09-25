@@ -12,7 +12,7 @@ function RegisterDoctor() {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://0.0.0.0:10000/api/register_doctor', {
+      const response = await axios.post('https://medbooker.onrender.com/api/register_doctor', {
         name,
         specialty,
       });
