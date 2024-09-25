@@ -6,7 +6,7 @@ const AppointmentList = () => {
   const [appointments, setAppointments] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/appointments')
+    axios.get('https://medbooker.onrender.com/api/appointments')
       .then(response => setAppointments(response.data))
       .catch(error => console.error('Error fetching appointments:', error));
   }, []);

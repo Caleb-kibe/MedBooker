@@ -8,7 +8,7 @@ function AppointmentBooking() {
 
     const handleBooking = async () => {
         try {
-            const response = await axios.post('http://127.0.0.1:5000/appointments/book', {
+            const response = await axios.post('https://medbooker.onrender.com/appointments/book', {
                 doctor_id: doctorId,
                 appointment_time: appointmentTime
             });
